@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">支付</string>
+    <string name="zfb_pay">支付宝</string>
+    <string name="weixin_pay">微信</string>
+    <string name="bank_pay">银联</string>
+    <string name="pay_btn">支付</string>
+    <string name="pay_type_error">支付类型错误</string>
+    <string name="pay_success">支付成功</string>
+    <string name="pay_failtrue">支付失败</string>
+</resources>

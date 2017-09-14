@@ -1,0 +1,64 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.1"
+    defaultConfig {
+        applicationId "com.yln.payphone"
+        minSdkVersion 11
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    packagingOptions {
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE' // will not include LICENSE file
+        // as noted by @Vishnuvathsan you may also need to include
+        // variations on the file name. It depends on your dependencies.
+        // Some other common variations on notice and license file names
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/notice'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/license'
+        exclude 'META-INF/license.txt'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
+//    task nativeLibsToJar(type: Zip, description: "create a jar archive of the native libs") {
+//        destinationDir file("$projectDir/libs")
+//        baseName "Native_Libs2"
+//        extension "jar"
+//        from fileTree(dir: "libs", include: "**/*.so")
+//        into "lib"
+//    }
+//
+//    tasks.withType(JavaCompile) {
+//        compileTask -> compileTask.dependsOn(nativeLibsToJar)
+//    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.android.support:support-v4:25.3.1'
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'
+//    compile 'org.apache.httpcomponents:httpclient:4.5.3'
+    compile 'org.apache.httpcomponents:httpcore:4.4.7'
+    compileOnly files('libs/UPPayAssistEx.jar')
+    compileOnly files('libs/httpclient-4.5.2.jar')
+    testImplementation 'junit:junit:4.12'
+}

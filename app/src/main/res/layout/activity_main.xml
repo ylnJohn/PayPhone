@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.yln.payphone.MainActivity">
+
+    <RadioGroup
+        android:id="@+id/pay_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal">
+        <RadioButton
+            android:id="@+id/zfb_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/zfb_pay"
+            android:layout_margin="10dp"
+            android:textSize="18sp"/>
+        <RadioButton
+            android:id="@+id/weixin_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/weixin_pay"
+            android:layout_margin="10dp"
+            android:textSize="18sp"/>
+        <RadioButton
+            android:id="@+id/bank_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/bank_pay"
+            android:layout_margin="10dp"
+            android:textSize="18sp"
+            android:visibility="gone"/>
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/pay_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/pay_btn"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:layout_margin="20dp"
+        />
+
+</LinearLayout>
